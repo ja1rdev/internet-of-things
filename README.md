@@ -1,74 +1,48 @@
-# 🚦 IoT LED Control System
+# Internet of Things - IoT LED Control System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ## 📋 Overview
 
-The IoT LED Control System is a collection of Arduino sketches designed to demonstrate various LED control patterns and behaviors. This project is perfect for learning basic electronics and programming concepts with Arduino.
+El sistema de control de LEDs IoT es una colección de sketches de Arduino diseñados para demostrar varios patrones y comportamientos de control de LEDs. Este proyecto es ideal para aprender conceptos básicos de electrónica y programación con Arduino, incluyendo manejo de entradas, salidas, y multitarea cooperativa.
 
 ## ✨ Features
 
-- 💡 Multiple LED control patterns
-- 🚦 Traffic light simulation
-- 🔄 Circular LED sequence
-- ⏱️ Timed LED blinking
-- 🎛️ Interactive menu system
+- 💡 Control individual y simultáneo de LEDs
+- 🚦 Simulación de semáforo con LEDs rojo, amarillo y verde
+- 🔄 Modo intermitente sin bloqueo (sin uso de delay())
+- 🎛️ Menú interactivo vía consola Serial
+- 🔘 Control paralelo mediante pulsador con detección de múltiples pulsaciones
+- ⏱️ Manejo de rebote y temporización con millis()
 
 ## 🛠️ Technologies
 
-- **Hardware**: Arduino-compatible board, LEDs, resistors, breadboard
+- **Hardware**: Placa Arduino compatible, LEDs, resistencias, protoboard, pulsador
 - **Software**: Arduino IDE
-- **Programming Language**: C++ (Arduino)
+- **Lenguaje de programación**: C++ (Arduino)
 
-## 📋 Sketches
+## 📋 Sketch principal: `IoT_LED_Control.ino`
 
-### 1. Simultaneous LED Blinking
-Basic sketch demonstrating simultaneous blinking of multiple LEDs.
+Este sketch implementa:
 
-### 2. Traffic Light System
-Interactive traffic light simulation with two modes:
-- **Option 1**: Activate traffic light sequence
-- **Option 2**: Deactivate traffic light
-
-### 3. Circular LED Sequence
-LEDs light up in a circular pattern, creating a chasing light effect.
-
-### 4. Individual LED Blinking
-Individual LEDs blink in sequence, repeating the pattern 5 times.
+- Menú Serial para encender/apagar LEDs individualmente o todos a la vez
+- Modo intermitente sin bloqueo
+- Lectura de pulsador en modo INPUT_PULLUP con detección de 1 a 6 pulsaciones para controlar LEDs en paralelo
+- Manejo de rebote y temporización con millis()
 
 ## 🚀 Getting Started
 
-### Prerequisites
-- Arduino IDE installed on your computer
-- Arduino board (Uno, Nano, etc.)
-- LEDs and appropriate resistors
-- Jumper wires
-- Breadboard
+### Prerequisitos
 
-### Installation
-1. Clone this repository
-2. Open the desired sketch in Arduino IDE
-3. Connect your Arduino board
-4. Upload the sketch to your board
+- Arduino IDE instalado
+- Placa Arduino (Uno, Nano, etc.)
+- LEDs rojo, amarillo y verde con resistencias adecuadas
+- Pulsador de 2 o 4 pines
+- Protoboard y cables jumper
 
-## 🤝 Contributing
+### Instalación
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Contact
-
-Project Maintainer - [@ja1rdev](https://github.com/ja1rdev)
-
----
-*Note: This project is part of an academic exercise in IoT programming.*
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tu_usuario/internet-of-things.git
