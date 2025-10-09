@@ -1,0 +1,4 @@
+1. Open arduino IDE
+2. Select the board
+3. Select the port
+4. Include the library DHT.h by Adafruit
