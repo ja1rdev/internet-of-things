@@ -14,39 +14,35 @@ void setup() {
   pinMode(motorPin, OUTPUT);
 
   lcd_1.setCursor(0, 0);
-  lcd_1.print("Monitoring...");
+  lcd_1.print("Monitoreando...");
   delay(2000);
   lcd_1.clear();
 }
 
 void loop() {
   // Read TMP36 and convert to Celsius
-  int   sensorValue  = analogRead(sensorPin);
-  float voltage      = sensorValue * (5.0 / 1023.0);
-  float temperatureC = (voltage - 0.5) * 100.0;
+  int   sensorValue  = analogRead(sensorPin);         // 0..1023
+  float voltage      = sensorValue * (5.0 / 1023.0);  // 0..5V
+  float temperatureC = (voltage - 0.5) * 100.0;       // °C
 
   // LCD: show temperature
   lcd_1.setCursor(0, 0);
   lcd_1.print("Temp: ");
-  lcd_1.print(temperatureC, 1);
-  lcd_1.print((char)223);
-  lcd_1.print("C   ");
+  lcd_1.print(temperatureC); 
+  lcd_1.print(" C   ");
 
   // Control logic
-  if (temperatureC <= 10.0) {
-    // Cold: blink LED, motor OFF
+  if (temperatureC <= 10) {
     digitalWrite(motorPin, LOW);
     digitalWrite(ledPin, HIGH); delay(500);
     digitalWrite(ledPin, LOW);  delay(500);
   }
-  else if (temperatureC >= 11.0 && temperatureC <= 25.0) {
-    // Mid range: LED OFF, motor OFF
+  else if (temperatureC >= 11 && temperatureC < 25) {
     digitalWrite(ledPin, LOW);
     digitalWrite(motorPin, LOW);
     delay(1000);
   }
-  else if (temperatureC >= 26.0) {
-    // Hot: LED ON, motor ON
+  else if (temperatureC >= 26) {
     digitalWrite(ledPin, HIGH);
     digitalWrite(motorPin, HIGH);
     delay(1000);
