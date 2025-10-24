@@ -1,7 +1,7 @@
 # include <DHT.h>
-# define DHTPIN 2
+# define DHTPIN 13
 # define DHTTYPE DHT11 
-# define LED_RED 13
+# define LED_RED 2
 float humidity, temperature;
 
 DHT dht(DHTPIN, DHTTYPE);
